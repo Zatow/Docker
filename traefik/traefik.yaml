@@ -37,7 +37,7 @@ entryPoints:
     address: ":443"        # Qui écoute le port 443
 
 certificatesResolvers:                   # Permet de définir un challenge http pour la résolution des certificats SSL
-  letsencrypt:                           # Nom de son resolver
+  letsencrypt:                           # Nom du resolver (Personnalisable)
     acme:                                # Active ACME (Let's Encrypt): Automatique SSL.
       email: "mail@gmail.com"   # Adresse e-mail utilisée pour l'inscription
       storage: "letsencrypt/acme.json"   # Fichier utilisé pour le stockage des certificats.
