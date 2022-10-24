@@ -39,7 +39,7 @@ entryPoints:
 certificatesResolvers:                   # Permet de définir un challenge http pour la résolution des certificats SSL
   letsencrypt:                           # Nom de son resolver
     acme:                                # Active ACME (Let's Encrypt): Automatique SSL.
-      email: "apaillard.pro@gmail.com"   # Adresse e-mail utilisée pour l'inscription
+      email: "mail@gmail.com"   # Adresse e-mail utilisée pour l'inscription
       storage: "letsencrypt/acme.json"   # Fichier utilisé pour le stockage des certificats.
       httpChallenge:                     # Utiliser un défi ACME HTTP-01
         entryPoint: "http"               # EntryPoint à utiliser pour les défis HTTP-01
