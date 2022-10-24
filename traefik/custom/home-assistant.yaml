@@ -1,0 +1,14 @@
+http:
+  routers:
+    home-assistant:
+      entryPoints:
+        - https                               # Pour la route 'home-assistant' -> Utiliser l'entrypoint 'https'
+      rule: Host(`home-assistant.domain.fr`)  # Pour la route 'home-assistant' -> Attrape toute les requêtes de 'traefik.domain.fr'
+      service: home-assistant                 # Pour la route 'home-assistant' -> Indique le service à utiliser
+      tls:
+        certResolver: letsencrypt             # Pour la route 'home-assistant' -> Indique que je souhaite utiliser le certResolver 'letsencrypt'
+  services:
+    home-assistant:
+      loadBalancer:
+        servers:
+        - url: "http://192.168.1.89:8123"     # Pour le service 'home-assistant' -> Indique que le port à exposer est le 8123

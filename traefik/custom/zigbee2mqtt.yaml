@@ -1,0 +1,12 @@
+http:
+  routers:
+    zigbee2mqtt:
+      entryPoints:
+        - http                            # Pour la route 'zigbee2mqtt' -> Utiliser l'entrypoint 'https'
+      rule: Host(`zigbee2mqtt.domain.fr`) # Pour la route 'zigbee2mqtt' -> Attrape toute les requêtes de 'zigbee2mqtt.domain.fr'
+      service: zigbee2mqtt                # Pour la route 'zigbee2mqtt' -> Indique le service à utiliser
+  services:
+    zigbee2mqtt:
+      loadBalancer:
+        servers:
+        - url: "http://192.168.1.89:8080" # Pour le service 'zigbee2mqtt' -> Indique que le port à exposer est le 8080

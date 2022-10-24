@@ -1,0 +1,14 @@
+http:
+  routers:
+    nextcloud:
+      entryPoints:
+        - https                           # Pour la route 'nextcloud' -> Utiliser l'entrypoint 'https'
+      rule: Host(`cloud.domain.fr`)       # Pour la route 'nextcloud' -> Attrape toute les requêtes de 'traefik.domain.fr'
+      service: nextcloud                  # Pour la route 'nextcloud' -> Indique le service à utiliser
+      tls:
+        certResolver: letsencrypt         # Pour la route 'nextcloud' -> Indique que je souhaite utiliser le certResolver 'letsencrypt'
+  services:
+    nextcloud:
+      loadBalancer:
+        servers:
+        - url: "http://192.168.1.89:9462" # Pour le service 'nextcloud' -> Indique que le port à exposer est le 9462

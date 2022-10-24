@@ -1,0 +1,12 @@
+http:
+  routers:
+    node-red:
+      entryPoints:
+        - http                            # Pour la route 'node-red' -> Utiliser l'entrypoint 'http'
+      rule: Host(`node-red.domain.local`) # Pour la route 'node-red' -> Attrape toute les requêtes de 'node-red.domain.local'
+      service: node-red                   # Pour la route 'node-red' -> Indique le service à utiliser
+  services:
+    node-red:
+      loadBalancer:
+        servers:
+        - url: "http://192.168.1.89:1880" # Pour le service 'node-red' -> Indique que le port à exposer est le 1880
