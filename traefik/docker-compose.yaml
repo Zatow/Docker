@@ -20,7 +20,7 @@ services:
       - ./log:/log                                 # Volume ou seront stocké les logs
       - ./certs:/letsencrypt                       # Volume ou sera stocké le fichier acme.json
     labels:   
-# TRAEFIK -> Si ça fonctionne, à déplacer dans traefik/custom/traefik.yaml
+# TRAEFIK -> A faire : Déplacer dans traefik/custom/traefik.yaml
       - "traefik.http.routers.api.rule=Host(`traefik.domain.local`)"   # Pour la route 'api' -> Attrape toute les requêtes de 'traefik.domain.fr'
       - "traefik.http.routers.api.service=api@internal"                # Pour la route 'api' -> Utiliser le service 'api' sur provider 'internal' 
       - "traefik.http.routers.api.entrypoints=https,http"              # Pour la route 'api' -> Utiliser l'entrypoint 'https' sinon 'http'
